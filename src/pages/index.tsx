@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import Head from "next/head";
-import { useValidation, Validation } from "react-validation-strategy";
+import { useValidation, Validation } from "../lib";
 import { z } from "zod";
 
 const reg = /%|#|\$|@|!/;
@@ -8,7 +8,7 @@ const reg = /%|#|\$|@|!/;
 const zType = z.string().email("This must be an email");
 const vals = zType.parse("magerx1794@gmail.com");
 
-const AccountValidation = Validation.createValidationSlice({
+const validation = Validation.createValidationSlice({
   firstName: Validation.new("")
     .length(2, 20)
     .match(/^[A-z]*$/)
@@ -22,11 +22,12 @@ const AccountValidation = Validation.createValidationSlice({
   password: Validation.new("").match(reg),
   confirmPassword: Validation.new("").custom((val) => val.length > 5),
   email: Validation.new("").length(2, 200).includes("@"),
+  button: Validation.new(""),
   //email: Validation.new("").parse(z.string().email("This must be an email")),
 });
 
 export default function Home() {
-  const [syncInput, isValid] = useValidation(AccountValidation);
+  const { sync, isValid, actions } = useValidation(validation);
 
   return (
     <>
@@ -38,7 +39,7 @@ export default function Home() {
       <main className={styles.main}>
         Username:{" "}
         <input
-          {...syncInput(
+          {...sync(
             "username",
             {
               border: "thick double rgba(0,0,0,0)",
@@ -50,104 +51,21 @@ export default function Home() {
           type={"text"}
           placeholder={"Enter your name"}
         />
+        <input
+          {...sync(
+            "button",
+            {
+              border: "thick double rgba(0,0,0,0)",
+            },
+            {
+              border: "thick double red",
+            }
+          )}
+          placeholder={"Enter your name"}
+          type="radio"
+          checked={actions.watch("button") === "1"}
+        />
       </main>
     </>
   );
 }
-
-/*
-
-First Name:{" "}
-        <input
-          style={{
-            border: !isPropertyValid("firstName")
-              ? "thick double red"
-              : "thick double rgba(0,0,0,0)",
-          }}
-          value={getProperty("firstName")}
-          type={"text"}
-          placeholder={"Enter your name"}
-          onChange={(event) =>
-            updateProperties("firstName", event.currentTarget.value)
-          }
-        />
-        Last Name:{" "}
-        <input
-          style={{
-            border: !isPropertyValid("lastName")
-              ? "thick double red"
-              : "thick double rgba(0,0,0,0)",
-          }}
-          value={getProperty("lastName")}
-          type={"text"}
-          placeholder={"Enter your name"}
-          onChange={(event) =>
-            updateProperties("lastName", event.currentTarget.value)
-          }
-        />
-        Username:{" "}
-        <input
-          style={{
-            border: !isPropertyValid("username")
-              ? "thick double red"
-              : "thick double rgba(0,0,0,0)",
-          }}
-          value={getProperty("username")}
-          type={"text"}
-          placeholder={"Enter your name"}
-          onChange={(event) =>
-            updateProperties("username", event.currentTarget.value)
-          }
-        />
-        Display:{" "}
-        <input
-          style={{
-            border: !isPropertyValid("displayName")
-              ? "thick double red"
-              : "thick double rgba(0,0,0,0)",
-          }}
-          value={getProperty("displayName")}
-          type={"text"}
-          placeholder={"Enter your name"}
-          onChange={(event) =>
-            updateProperties("displayName", event.currentTarget.value)
-          }
-        />
-        Password{" "}
-        <input
-          style={{
-            border: !isPropertyValid("password")
-              ? "thick double red"
-              : "thick double rgba(0,0,0,0)",
-          }}
-          value={getProperty("password")}
-          type={"password"}
-          placeholder={"Enter your password"}
-          onChange={eventChange((val) => updateProperties("password", val))}
-        />
-        Confirm Password{" "}
-        <input
-          style={{
-            border: !isPropertyValid("confirmPassword")
-              ? "thick double red"
-              : "thick double rgba(0,0,0,0)",
-          }}
-          value={getProperty("confirmPassword")}
-          type={"password"}
-          placeholder={"Enter your password"}
-          onChange={eventChange((val) =>
-            updateProperties("confirmPassword", val)
-          )}
-        />
-        Last Name:{" "}
-        <input
-         style={{
-            border: false
-              ? "thick double red"
-              : "thick double rgba(0,0,0,0)",
-          }}
-          type={"text"}
-          placeholder={"Enter your last name"}
-        />
-
-        */
