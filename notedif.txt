@@ -96,6 +96,6 @@ $\textcolor{red}{\textsf{Color didint work .}}$
 $\textcolor{green}{\textsf{Color didint work .}}$ 
 
 
-toRemovedCode: ^(-.*)$ => $\\textcolor{red}{\\textsf{\1}}$ 
+toRemovedCode: ^(-.*)$ => $\\textcolor{red}{\\textsf{\\\1}}$ 
 toAddedCode: ^(\+.*)$ => $\\textcolor{green}{\\textsf{\1}}$ 
-toQuote: ^(.*)$ => > \1
+toQuote: ^(.*)$ => > \1  

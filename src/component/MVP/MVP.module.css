@@ -1,0 +1,128 @@
+.goal-progress {
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff; /* White background for contrast */
+}
+
+.goal-name {
+  font-size: 20px;
+  color: #000000; /* Classic Black */
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #d3d3d3; /* Light Grey */
+}
+
+.progress {
+  height: 100%;
+  background-color: #50c878; /* Success Emerald */
+}
+
+.percentage {
+  font-size: 16px;
+  color: #000000; /* Classic Black */
+}
+
+.calendar-items {
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff; /* White background for contrast */
+}
+
+.calendar-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #40e0d0; /* Trustworthy Turquoise */
+}
+
+.event-name,
+.event-time,
+.event-details {
+  margin: 0;
+  color: #000000; /* Classic Black */
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  background-color: #ffffff; /* White background for contrast */
+}
+
+.task {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #ffff00; /* Sunny Yellow */
+}
+
+.task-checkbox {
+  margin-right: 10px;
+}
+
+.task-name,
+.due-date {
+  color: #000000; /* Classic Black */
+}
+
+.notifications {
+  list-style-type: none;
+  padding: 0;
+  background-color: #ffffff; /* White background for contrast */
+}
+
+.notification {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #ffbf00; /* Alert Amber */
+}
+
+.notification-text {
+  margin: 0;
+  color: #000000; /* Classic Black */
+}
+
+.dismiss-button {
+  float: right;
+  background-color: #ff0000; /* Action Red */
+  color: #ffffff; /* White for contrast */
+}
+
+.task-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black overlay for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task {
+  width: 80%;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #d3d3d3; /* Soft Cloud Grey */
+}
+
+.task-name,
+.task-details {
+  margin: 0;
+  color: #000000; /* Classic Black */
+}
+
+.subtasks {
+  list-style-type: none;
+  padding: 0;
+}
+
+.subtask {
+  margin-top: 10px;
+  color: #000000; /* Classic Black */
+}
+
+.attachments {
+  margin-top: 20px;
+}

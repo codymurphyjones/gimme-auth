@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.1.1",
     "@t3-oss/env-nextjs": "^0.3.1",
     "next": "^13.4.2",
+    "prettier": "^3.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-validation-strategy": "^0.0.49-killmonger",
+    "react-hook-form": "^7.45.2",
+    "react-validation-strategy": "^0.0.53",
+    "react-visibility-sensor": "^5.1.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {
